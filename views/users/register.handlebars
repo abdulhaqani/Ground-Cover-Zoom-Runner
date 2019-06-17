@@ -1,0 +1,32 @@
+</br />
+<div class="jumbotron" style="background-color: #2e5274">
+    <div class="container" style="width: 50%">
+        <form  action="/users/register" method="POST">
+            <div class="form-group">
+                <label style="color: white">Organization*</label>
+                <input type="text" name="org" class="form-control" style="width: 50%;" required>
+                <label style="color: white">First Name</label>
+                <input type="text" name="first_name" class="form-control" style="width: 50%;">
+                <label style="color: white">Last Name</label>
+                <input type="text" name="last_name" class="form-control" style="width: 50%;">
+                <label style="color: white">Email Address*</label>
+                <input type="email" name="email" class="form-control">
+                <label style="color: white">Password*</label>
+                <input type="password" name="passwd1" class="form-control" required>
+                <label style="color: white">Confirm Password*</label>
+                <input type="password" name="passwd2" class="form-control" required>
+            </div>
+            <div class="row">
+                <div class="col-xs-2" style="margin-left: 0.5%;">
+                    <button type="submit" class="btn btn-secondary">Submit</button>
+                </div>
+                <div class="col-xs-2" style="margin-left: 0.5%;">
+                    <button type="button" class="btn btn-outline-light">Cancel</button>
+                </div>
+                
+            </div>
+            <br />
+            <p style="color: white">* Required Field</p>
+        </form>
+    </div>
+</div>
