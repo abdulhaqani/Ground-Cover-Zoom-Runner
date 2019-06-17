@@ -21,32 +21,14 @@ const DisplayForms = mongoose.model('displayForms');
 
 // DisplayForms index page
 router.get('/', ensureAuthenticated, (req, res) => {
-  const fromImageFolder = './public/greenHouseImages';
-  let i = 0;
-  fs.readdirSync(fromImageFolder).forEach(file => {
-    fileName = file;
-    i += 1;
-  });
-  if (i == 0) {
-    fileName = '';
-  }
-  const imgPath = `/greenHouseImages/${fileName}`;
-  res.render('displayForms/index', { imgPath });
+
+  res.render('displayForms/index');
 });
 
 // solar panel display form page
 router.get('/solarpanel', ensureAuthenticated, (req, res) => {
-  const fromImageFolder = './public/solarPanelImages';
-  let i = 0;
-  fs.readdirSync(fromImageFolder).forEach(file => {
-    fileName = file;
-    i += 1;
-  });
-  if (i == 0) {
-    fileName = '';
-  }
-  const imgPath = `/solarPanelImages/${fileName}`;
-  res.render('displayForms/solarpanel', { imgPath });
+
+  res.render('displayForms/solarpanel');
 });
 
 // greenhouse post request

@@ -24,7 +24,7 @@ require('./models/DisplayForms');
 
 // connect to mongoose
 mongoose
-  .connect('mongodb://127.0.0.1/greenhouse-dev', {
+  .connect('mongodb://127.0.0.1/groundCoverZoom-dev', {
     useNewUrlParser: true,
   })
   .then(() => console.log('connected to mongodb'))
