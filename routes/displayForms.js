@@ -6,8 +6,6 @@ const fsExtra = require('fs-extra');
 const path = require('path');
 const bodyParser = require('body-parser');
 
-let fileName = '';
-
 const router = express.Router();
 const { ensureAuthenticated } = require('../helpers/auth');
 
@@ -21,13 +19,11 @@ const DisplayForms = mongoose.model('displayForms');
 
 // DisplayForms index page
 router.get('/', ensureAuthenticated, (req, res) => {
-
   res.render('displayForms/index');
 });
 
 // solar panel display form page
 router.get('/solarpanel', ensureAuthenticated, (req, res) => {
-
   res.render('displayForms/solarpanel');
 });
 
