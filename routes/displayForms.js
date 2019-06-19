@@ -43,7 +43,7 @@ router.get('/solarpanel', ensureAuthenticated, (req, res) => {
 
 // greenhouse post request
 router.post('/', ensureAuthenticated, upload.single('file'), (req, res) => {
-  res.render('/');
+  res.redirect('/');
 });
 
 // solarPanel post request
