@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
+const fsExtra = require('fs-extra');
 
 const router = express.Router();
 const { ensureAuthenticated } = require('../helpers/auth');
@@ -43,14 +44,41 @@ router.get('/solarpanel', ensureAuthenticated, (req, res) => {
 
 // greenhouse post request
 router.post('/', ensureAuthenticated, upload.single('file'), (req, res) => {
+  // if a file submitted, perform api call on the single file
+  if (req.body.fileSubmit) console.log('file');
   res.redirect('/');
 });
+
+router.post(
+  '/greenHouseFolder',
+  ensureAuthenticated,
+  upload.any('folder'),
+  (req, res) => {
+    if (req.body.folderSubmit) console.log('folder');
+    res.redirect('/');
+  }
+);
 
 // solarPanel post request
-router.post('/solarpanel', ensureAuthenticated, (req, res) => {
-  // api call to django goes
+router.post(
+  '/solarpanel',
+  upload.single('file'),
+  ensureAuthenticated,
+  (req, res) => {
+    // if a file submitted, perform api call on the single file
+    if (req.body.fileSubmit) console.log('file');
+    res.redirect('/');
+  }
+);
 
-  res.redirect('/');
-});
+router.post(
+  '/solarpanelFolder',
+  ensureAuthenticated,
+  upload.any('folder'),
+  (req, res) => {
+    if (req.body.folderSubmit) console.log('folder');
+    res.redirect('/');
+  }
+);
 
 module.exports = router;

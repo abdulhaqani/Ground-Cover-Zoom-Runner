@@ -1,10 +1,28 @@
 <div class="jumbotron text-center" style="margin-top: 5%">
   <h3>Submit a green house image</h3>
+  <style>
+    .group {
+      display: inline-block;
+    }
+  </style>
   <hr>
-  <div style="outline: 2px solid black; padding: 25px; margin-top: 10%" class="col-sm">
-    <form method="post" enctype="multipart/form-data" action="/displayForms/solarPanel">
-      <input type="file" class="btn btn-light" name="file" style="margin-bottom: 5%">
-      <input type="submit" class="btn btn-success" value="Submit">
+  <div style="outline: 2px solid black; padding: 10px; margin: auto" class="col-sm">
+    <form action="/displayForms/solarpanel/" method="post" class="group" enctype="multipart/form-data">
+      <div class="group">
+        <label for="file">file upload</label>
+        <br>
+        <input type="file" class="btn btn-light" name="file" style="margin-right: 5%">
+        <input type="submit" class="btn btn-success" name="fileSubmit" value="fileSubmit">
+      </div>
     </form>
+    <form action="/displayForms/solarpanelFolder/" method="POST" class="group" enctype="multipart/form-data">
+      <div class="group">
+        <label for="folder">folder upload</label>
+        <br>
+        <input type="file" webkitdirectory="" directory="" class="btn btn-light" name="folder" style="margin-left: 5%">
+        <input type="submit" class="btn btn-success" name="folderSubmit" value="folderSubmit">
+      </div>
+    </form>
+
   </div>
 </div>
