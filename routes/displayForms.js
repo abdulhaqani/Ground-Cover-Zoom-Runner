@@ -49,6 +49,7 @@ router.post('/', ensureAuthenticated, upload.single('file'), (req, res) => {
 // solarPanel post request
 router.post('/solarpanel', ensureAuthenticated, (req, res) => {
   // api call to django goes
+
   res.redirect('/');
 });
 
