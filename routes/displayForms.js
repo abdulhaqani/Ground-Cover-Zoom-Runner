@@ -44,8 +44,15 @@ router.get('/solarpanel', ensureAuthenticated, (req, res) => {
 
 // greenhouse post request
 router.post('/', ensureAuthenticated, upload.single('file'), (req, res) => {
-  // if a file submitted, perform api call on the single file
-  if (req.body.fileSubmit) console.log('file');
+  // send file to temp and rename it
+  if (fs.existsSync(req.file.path)) {
+    fs.rename(req.file.path, `./public/temp/${req.file.originalname}`, err => {
+      if (err) console.log('err');
+      else console.log('file name changed');
+    });
+  } else {
+    console.log('does not exist');
+  }
   res.redirect('/');
 });
 
@@ -65,9 +72,19 @@ router.post(
   upload.single('file'),
   ensureAuthenticated,
   (req, res) => {
-    // if a file submitted, perform api call on the single file
-    if (req.body.fileSubmit) console.log('file');
-    res.redirect('/');
+    // send file to temp and rename back to original
+    if (fs.existsSync(req.file.path)) {
+      fs.rename(
+        req.file.path,
+        `./public/temp/${req.file.originalname}`,
+        err => {
+          if (err) console.log('err');
+          else console.log('file name changed');
+        }
+      );
+    } else {
+      console.log('does not exist');
+    }
   }
 );
 
