@@ -2,11 +2,6 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const DisplaySchema = new Schema({
-  FileName: String,
-  Classified: Boolean,
-  SolarPanel: Boolean,
-  GreenHouse: Boolean,
-});
+const AISchema = new Schema({});
 
-mongoose.model('displayForms', DisplaySchema);
+mongoose.model('displayForms', AISchema);

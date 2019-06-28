@@ -3,9 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const multer = require('multer');
-const path = require('path');
 const fs = require('fs');
-const fsExtra = require('fs-extra');
 
 const router = express.Router();
 const { ensureAuthenticated } = require('../helpers/auth');
@@ -25,10 +23,6 @@ const upload = multer({
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 
-require('../models/DisplayForms');
-
-const DisplayForms = mongoose.model('displayForms');
-
 // DisplayForms index page
 router.get('/', ensureAuthenticated, (req, res) => {
   res.render('displayForms/index');
@@ -47,8 +41,10 @@ router.post('/', ensureAuthenticated, upload.single('file'), (req, res) => {
   // send file to temp and rename it
   if (fs.existsSync(req.file.path)) {
     fs.rename(req.file.path, `./public/temp/${req.file.originalname}`, err => {
-      if (err) console.log('err');
-      else console.log('file name changed');
+      if (err) {
+        console.log('err');
+        handleError();
+      }
     });
   } else {
     console.log('does not exist');
@@ -68,8 +64,10 @@ router.post(
           req.files[i].path,
           `./public/temp/${req.files[i].originalname}`,
           err => {
-            if (err) console.log('err');
-            else console.log('file name changed');
+            if (err) {
+              console.log('err');
+              handleError();
+            }
           }
         );
       } else {
@@ -92,8 +90,10 @@ router.post(
         req.file.path,
         `./public/temp/${req.file.originalname}`,
         err => {
-          if (err) console.log('err');
-          else console.log('file name changed');
+          if (err) {
+            console.log('err');
+            handleError();
+          }
         }
       );
     } else {
@@ -115,8 +115,10 @@ router.post(
           req.files[i].path,
           `./public/temp/${req.files[i].originalname}`,
           err => {
-            if (err) console.log('err');
-            else console.log('file name changed');
+            if (err) {
+              console.log('err');
+              handleError();
+            }
           }
         );
       } else {
