@@ -9,18 +9,21 @@
   <div style="outline: 2px solid black; padding: 10px; margin: auto" class="col-sm">
     <form action="/displayForms/" method="post" class="group" enctype="multipart/form-data">
       <div class="group">
-        <label for="file">file upload</label>
+        <label for="file" style="margin-top: 5%">file upload</label>
         <br>
-        <input type="file" class="btn btn-light" name="file" style="margin-right: 5%">
-        <input type="submit" class="btn btn-success" name="fileSubmit" value="fileSubmit">
+        <input type="file" class="btn btn-light" name="file"
+          style="margin-right: 5%; margin-left: 5%; margin-bottom: 5%">
+        <input type="submit" style="margin-bottom: 5%" class="btn btn-success" name="fileSubmit" value="fileSubmit">
+        <br>
       </div>
     </form>
     <form action="/displayForms/greenHouseFolder/" method="POST" class="group" enctype="multipart/form-data">
       <div class="group">
-        <label for="folder">folder upload</label>
+        <label for="folder" style="margin-top: 5%">folder upload</label>
         <br>
-        <input type="file" webkitdirectory="" directory="" class="btn btn-light" name="folder" style="margin-left: 5%">
-        <input type="submit" class="btn btn-success" name="folderSubmit" value="folderSubmit">
+        <input type="file" webkitdirectory="" directory="" class="btn btn-light" name="folder"
+          style="margin-right: 5%; margin-left: 5%; margin-bottom: 5%">
+        <input type="submit" style="margin-bottom: 5%" class="btn btn-success" name="folderSubmit" value="folderSubmit">
       </div>
     </form>
 
