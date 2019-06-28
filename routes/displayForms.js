@@ -61,7 +61,21 @@ router.post(
   ensureAuthenticated,
   upload.any('folder'),
   (req, res) => {
-    if (req.body.folderSubmit) console.log('folder');
+    // eslint-disable-next-line no-plusplus
+    for (let i = 0; i < req.files.length; i++) {
+      if (fs.existsSync(req.files[i].path)) {
+        fs.rename(
+          req.files[i].path,
+          `./public/temp/${req.files[i].originalname}`,
+          err => {
+            if (err) console.log('err');
+            else console.log('file name changed');
+          }
+        );
+      } else {
+        console.log('does not exist');
+      }
+    }
     res.redirect('/');
   }
 );
@@ -72,7 +86,7 @@ router.post(
   upload.single('file'),
   ensureAuthenticated,
   (req, res) => {
-    // send file to temp and rename back to original
+    // send file to temp and rename it
     if (fs.existsSync(req.file.path)) {
       fs.rename(
         req.file.path,
@@ -85,6 +99,7 @@ router.post(
     } else {
       console.log('does not exist');
     }
+    res.redirect('/');
   }
 );
 
@@ -93,7 +108,21 @@ router.post(
   ensureAuthenticated,
   upload.any('folder'),
   (req, res) => {
-    if (req.body.folderSubmit) console.log('folder');
+    // eslint-disable-next-line no-plusplus
+    for (let i = 0; i < req.files.length; i++) {
+      if (fs.existsSync(req.files[i].path)) {
+        fs.rename(
+          req.files[i].path,
+          `./public/temp/${req.files[i].originalname}`,
+          err => {
+            if (err) console.log('err');
+            else console.log('file name changed');
+          }
+        );
+      } else {
+        console.log('does not exist');
+      }
+    }
     res.redirect('/');
   }
 );
