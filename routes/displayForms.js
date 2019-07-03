@@ -48,6 +48,8 @@ router.post('/', ensureAuthenticated, upload.single('file'), (req, res) => {
   } else {
     console.log('does not exist');
   }
+  // set variable to image data
+  // perform api call with variable as param
   res.redirect('/');
 });
 
@@ -73,6 +75,8 @@ router.post(
         console.log('does not exist');
       }
     }
+    // set variable to image data
+    // perform api call with variable as param
     res.redirect('/');
   }
 );
@@ -98,6 +102,8 @@ router.post(
     } else {
       console.log('does not exist');
     }
+    // set variable to image data
+    // perform api call with variable as param
     res.redirect('/');
   }
 );
@@ -124,6 +130,8 @@ router.post(
         console.log('does not exist');
       }
     }
+    // set variable to image data
+    // perform api call with variable as param
     res.redirect('/');
   }
 );
