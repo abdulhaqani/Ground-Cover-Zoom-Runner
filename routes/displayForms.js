@@ -25,9 +25,6 @@ router.use(bodyParser.json());
 // DisplayForms index page
 router.get('/', ensureAuthenticated, (req, res) => {
   res.render('displayForms/index');
-  if (!fs.existsSync('./public/temp')) {
-    fs.mkdirSync('./public/temp');
-  }
 });
 
 // solar panel display form page
@@ -37,17 +34,11 @@ router.get('/solarpanel', ensureAuthenticated, (req, res) => {
 
 // greenhouse post request
 router.post('/', ensureAuthenticated, upload.single('file'), (req, res) => {
-  // send file to temp and rename it
-  if (fs.existsSync(req.file.path)) {
-    fs.rename(req.file.path, `./public/temp/${req.file.originalname}`, err => {
-      if (err) {
-        console.log('err');
-        handleError();
-      }
-    });
-  } else {
-    console.log('does not exist');
-  }
+  // single upload post request
+
+  // req.file.path,
+  // `./public/temp/${req.file.originalname}`,
+
   // set variable to image data
   // perform api call with variable as param
   res.redirect('/');
@@ -58,22 +49,10 @@ router.post(
   ensureAuthenticated,
   upload.any('folder'),
   (req, res) => {
-    // eslint-disable-next-line no-plusplus
-    for (let i = 0; i < req.files.length; i++) {
-      if (fs.existsSync(req.files[i].path)) {
-        fs.rename(
-          req.files[i].path,
-          `./public/temp/${req.files[i].originalname}`,
-          err => {
-            if (err) {
-              console.log('err');
-              handleError();
-            }
-          }
-        );
-      } else {
-        console.log('does not exist');
-      }
+    // upload Folder post request
+    for (let i = 0; i < req.files.length; i += 1) {
+      // fs.existsSync(req.files[i].path
+      // `./public/temp/${req.files[i].originalname}`
     }
     // set variable to image data
     // perform api call with variable as param
@@ -87,21 +66,11 @@ router.post(
   upload.single('file'),
   ensureAuthenticated,
   (req, res) => {
-    // send file to temp and rename it
-    if (fs.existsSync(req.file.path)) {
-      fs.rename(
-        req.file.path,
-        `./public/temp/${req.file.originalname}`,
-        err => {
-          if (err) {
-            console.log('err');
-            handleError();
-          }
-        }
-      );
-    } else {
-      console.log('does not exist');
-    }
+    // single upload post request
+
+    // req.file.path,
+    // `./public/temp/${req.file.originalname}`,
+
     // set variable to image data
     // perform api call with variable as param
     res.redirect('/');
@@ -113,22 +82,10 @@ router.post(
   ensureAuthenticated,
   upload.any('folder'),
   (req, res) => {
-    // eslint-disable-next-line no-plusplus
-    for (let i = 0; i < req.files.length; i++) {
-      if (fs.existsSync(req.files[i].path)) {
-        fs.rename(
-          req.files[i].path,
-          `./public/temp/${req.files[i].originalname}`,
-          err => {
-            if (err) {
-              console.log('err');
-              handleError();
-            }
-          }
-        );
-      } else {
-        console.log('does not exist');
-      }
+    // upload Folder post request
+    for (let i = 0; i < req.files.length; i += 1) {
+      // fs.existsSync(req.files[i].path
+      // `./public/temp/${req.files[i].originalname}`
     }
     // set variable to image data
     // perform api call with variable as param
