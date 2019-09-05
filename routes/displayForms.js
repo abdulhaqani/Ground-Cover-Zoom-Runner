@@ -14,9 +14,7 @@ const handleError = (err, res) => {
     .end('Oops! Something went wrong!');
 };
 
-const upload = multer({
-  dest: './public/temp',
-});
+const upload = multer({});
 
 // body parser middleware
 router.use(bodyParser.urlencoded({ extended: false }));
@@ -35,7 +33,7 @@ router.get('/solarpanel', ensureAuthenticated, (req, res) => {
 // greenhouse post request
 router.post('/', ensureAuthenticated, upload.single('file'), (req, res) => {
   // single upload post request
-
+  // upload image to api (Need to coordinate with Russell)
   // req.file.path,
   // `./public/temp/${req.file.originalname}`,
 
